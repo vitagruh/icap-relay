@@ -1,0 +1,27 @@
+# ICAP Relay Configuration
+
+# Address to listen on for incoming ICAP requests from Squid
+listen_addr: ":1344"
+
+# Backend ICAP server A (priority by default)
+# Format: icap://host:port/service or just host:port
+backend_a: "icap://127.0.0.1:1345/reqmod"
+
+# Backend ICAP server B (fallback)
+backend_b: "icap://127.0.0.1:1346/reqmod"
+
+# Timeout for backend requests in milliseconds
+timeout_ms: 5000
+
+# Priority backend: "A" or "B"
+# Responses from this backend are preferred if successful
+priority: "A"
+
+# Log level: "debug", "info", "error"
+log_level: "info"
+
+# Maximum concurrent connections to handle
+max_conns: 100
+
+# Maximum buffer size for request/response bodies (bytes)
+max_buffer_size: 10485760
